@@ -13,7 +13,7 @@ const allowedOrigins = [
 ];
 
 const app = express();
-app.use(app.use(
+app.use(
   cors({
     origin: (origin, callback) => {
       if (!origin) return callback(null, true);
@@ -21,7 +21,9 @@ app.use(app.use(
       return callback(new Error("CORS no permitido"));
     },
     credentials: true,
-  })));
+  })
+);
+
 app.use(express.json());
 
 // Rutas principales
